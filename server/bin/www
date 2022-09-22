@@ -4,7 +4,9 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+//ES5 👉️ var app = require('../app'); da erro si cambiamos la estructura de app.js
+//👇️ Asi que lo modernizamos con ES6 
+import app from "..//app"
 var debug = require('debug')('practica1:server');
 var http = require('http');
 
