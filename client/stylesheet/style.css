@@ -1,6 +1,9 @@
 body{
-    background-color: rgb(247, 221, 226);
+  padding: 50px;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(198, 238, 172);
 }
-h2{
-    color:rgb(1, 69, 1);
+
+a{
+  color: #00B7FF;
 }

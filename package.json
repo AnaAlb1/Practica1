@@ -1,16 +1,17 @@
 {
-  "name": "express",
+  "name": "projnotes2022b",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node ./dist/bin/www",
-    "dev": "DEBUG=express NODE_ENV=development nodemon --exec babel-node ./server/bin/www",
-    "devb": "babel-watch ./server/bin/www.js",
-    "devc": "NODE_ENV=development && webpack serve --config ./webpack.dev.config.js --mode development",
+    "dev": "DEBUG=projnotes2022b NODE_ENV=development nodemon --exec babel-node ./server/bin/www",
+    "devc": "eslint --fix ./client && NODE_ENV=development && webpack serve --config ./webpack.dev.config.js --mode development",
+    "devb": "babel-watch ./server/bin/www",
     "cleans": "rm -rf dist",
     "cleanc": "rm -f ./public/bundle.js ./public/stylesheets/app.css",
     "b:s": "npm run cleans && babel ./server --out-dir dist --copy-files",
     "b:c": "npm run cleanc && webpack --config ./webpack.config.js --mode production",
+    "itgam": "ls",
     "build": "npm run b:c && npm run b:s"
   },
   "dependencies": {
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.15",
+    "@babel/eslint-parser": "^7.19.1",
     "@babel/node": "^7.13.13",
     "@babel/preset-env": "^7.13.15",
     "babel-eslint": "^10.1.0",
@@ -44,17 +46,18 @@
     "babel-watch": "^7.4.1",
     "core-js": "^3.11.1",
     "css-loader": "^5.2.4",
-    "eslint": "^7.26.0",
-    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-babel-module": "^5.3.1",
-    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-webpack-plugin": "^3.1.1",
     "mini-css-extract-plugin": "^1.6.0",
-    "nodemon": "^2.0.20",
+    "nodemon": "^2.0.19",
     "prettier": "^2.4.1",
+    "style-loader": "^3.3.1",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.11.0"
   }
 }
