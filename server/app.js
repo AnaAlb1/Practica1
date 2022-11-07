@@ -30,6 +30,8 @@ import usersRouter from './routes/users';
 const nodeEnv = process.env.NODE_ENV || 'development';
 
 // Creando una instancia de express
+logger.info('Creando Instancia de express');
+logger.error('No se puede abrir');
 const app = express();
 
 // Inclusion del webpack middleware
