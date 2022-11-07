@@ -1,5 +1,5 @@
-// Cargado estilos
-// import './stylesheet/myStyles.css';
-// import './stylesheet/style.css';
+import 'materialize-css/dist/css/materialize.css';
+import 'materialize-css/dist/js/materialize';
 
-// console.log('Webpack Working Middleware!!! 📦');
+M.AutoInit();
+console.log('Webpack Working Middleware!!! 📦');
