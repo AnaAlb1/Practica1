@@ -32,6 +32,9 @@ import router from './routes/router';
 const nodeEnv = process.env.NODE_ENV || 'development';
 
 // Creando una instancia de express
+logger.info('Este es un mensaje informativo');
+logger.error('Este es un mensaje de error');
+logger.warn('Este es un mensaje preventivo');
 const app = express();
 
 // Inclusion del webpack middleware

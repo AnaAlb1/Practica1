@@ -1,10 +1,10 @@
 {
-  "name": "projnotes2022b",
+  "name": "practica1",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node ./dist/bin/www",
-    "dev": "DEBUG=projnotes2022b NODE_ENV=development nodemon --exec babel-node ./server/bin/www",
+    "dev": "DEBUG=practica1 NODE_ENV=development nodemon --exec babel-node ./server/bin/www",
     "devc": "eslint --fix ./client && NODE_ENV=development && webpack serve --config ./webpack.dev.config.js --mode development",
     "devb": "babel-watch ./server/bin/www",
     "cleans": "rm -rf dist",
@@ -56,7 +56,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-webpack-plugin": "^3.1.1",
     "mini-css-extract-plugin": "^1.6.0",
-    "nodemon": "^2.0.19",
+    "nodemon": "^2.0.20",
     "prettier": "^2.4.1",
     "style-loader": "^3.3.1",
     "webpack-cli": "^4.6.0",
