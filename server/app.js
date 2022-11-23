@@ -28,8 +28,14 @@ import debug from './services/debugLogger';
 
 // Importando enrutador
 import router from './routes/router';
+
+// Importando los valores de entorno
+import configKeys from './config/configKeys';
+// Importando odm
+import MongooseOdm from './config/odm';
+
 // Recuperar el modo de ejecución de la app
-const nodeEnv = process.env.NODE_ENV || 'development';
+const nodeEnv = configKeys.env;
 
 // Creando una instancia de express
 logger.info('Este es un mensaje informativo');
