@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejemplo de nueva página para GOB.mx</title>
+    <!-- CSS -->
+    <link rel="shortcut icon" href="/images/rayos.png" type="image/x-icon">
+    <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/app.css'/>
+  </head>
+  <body>
+  <nav class="navmenu">
+    <div class="container">
+      {{>_navbar}}
+    </div>
+  </nav>
+
+  <main class="main__contenedor">
+    {{{body}}}
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      {{>_footer}}
+    </div>
+  </footer>
+    <!-- JS -->
+    <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+    <script src="/bundle.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

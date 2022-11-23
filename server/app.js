@@ -24,14 +24,18 @@ import logger from './config/winston';
 import debug from './services/debugLogger';
 
 // Definición de rutas
-import indexRouter from './routes/index';
-import usersRouter from './routes/users';
+import router from './routes/router';
+import configHbs from './config/templeteEngine';
+
+import configKeys from './config/configKeys';
+import MongooseOdm from './config/odm';
+
+const nodeEnv = configKeys.env;
 // Recuperar el modo de ejecución de la app
-const nodeEnv = process.env.NODE_ENV || 'development';
 
 // Creando una instancia de express
 const app = express();
-
+logger.info('esto es express');
 // Inclusion del webpack middleware
 if (nodeEnv === 'development') {
   debug('✒ Ejecutando en modo de desarrollo 👨‍💻');
@@ -61,14 +65,26 @@ if (nodeEnv === 'development') {
   debug('✒ Ejecutando en modo de producción 🏭');
 }
 
+
+const mongooseODM = new MongooseOdm(configKeys.mongoUrl);
+
+(async () => {
+  // Ejecutamos le metodo de conexion
+  const connectionResult = await mongooseODM.connect();
+  // Checamos si hay error
+  if (connectionResult) {
+    // Si conecto correctamente a la base de datos
+    logger.info('Conexion a la BD exitosa 😈');
+  } else {
+    logger.error('error de conexion😢');
+  }
+})();
+
+
 // view engine setup
 // Configura el motor de plantillas
 // 1. Establecer donde estarán las plantillas
-// (Vistas -> Views)
-// app.set("<nombre de la var>", <valor>)
-app.set('views', path.join(__dirname, 'views'));
-// Establezco que motor precargado usare
-app.set('view engine', 'hbs');
+configHbs(app);
 
 // Establezco Middelware
 app.use(morgan('dev', { stream: logger.stream }));
@@ -82,9 +98,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Registro Rutas
-app.use('/', indexRouter);
-app.use('/index', indexRouter);
-app.use('/users', usersRouter);
+router.addRoutes(app);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

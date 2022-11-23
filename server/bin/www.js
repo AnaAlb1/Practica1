@@ -1,20 +1,14 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-// ES5 👇
-// var app = require('../app');
-// ES6 👇
-import app from "../app"
-import debug from '../services/debugLogger'
 import http from 'http';
-
+import app from '../app';
+import debug from '../services/debugLogger';
+import configKeys from '../config/configKeys';
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(configKeys.port);
 app.set('port', port);
 
 /**
@@ -23,7 +17,7 @@ app.set('port', port);
 
 // app es una funcion de tipo middleware (codigo intermediario)
 // (req, res) =>{ ...res.send("algo") }
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -38,7 +32,7 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -62,19 +56,16 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    // ? 'Pipe ' + port
-    ? `Pipe ${port}`
-    : 'Port ' + port;
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `port ${port}`;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+      console.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      console.error(`${bind} is already in use`);
       process.exit(1);
       break;
     default:
@@ -87,11 +78,7 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-    // Desestrecuturando port de addr
-    let {port} = addr
-  debug(`🎈 Listening on http://localhost:${port}`);
+  const addr = server.address();
+  const bind = typeof addr === 'string' ? ` pipe + ${addr}` : ` port + ${addr.port}`;
+  debug(`💫 Listening on http://localhost:${port}`);
 }

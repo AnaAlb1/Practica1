@@ -1,5 +1,7 @@
 // Cargado estilos
-// import './stylesheet/myStyles.css';
-// import './stylesheet/style.css';
+import './stylesheet/style.css';
+import './stylesheet/navbar.css';
+import './stylesheet/footer.css';
+// import 'material-icons/iconfont/material-icons.css';
 
-// console.log('Webpack Working Middleware!!! 📦');
+// M.AutoInit();

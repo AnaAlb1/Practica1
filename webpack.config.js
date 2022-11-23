@@ -3,7 +3,6 @@
 
 // Importar un administrador de rutas de archivos
 const path = require('path');
-// Importando el extractor de css
 const MiniCssExtractPlugin =
   require('mini-css-extract-plugin');
 

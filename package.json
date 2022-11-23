@@ -1,10 +1,10 @@
 {
-  "name": "projnotes2022b",
+  "name": "practica1",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node ./dist/bin/www",
-    "dev": "DEBUG=projnotes2022b NODE_ENV=development nodemon --exec babel-node ./server/bin/www",
+    "dev": "DEBUG=fullstack NODE_ENV=development nodemon --exec babel-node ./server/bin/www",
     "devc": "eslint --fix ./client && NODE_ENV=development && webpack serve --config ./webpack.dev.config.js --mode development",
     "devb": "babel-watch ./server/bin/www",
     "cleans": "rm -rf dist",
@@ -13,7 +13,7 @@
     "b:c": "npm run cleanc && webpack --config ./webpack.config.js --mode production",
     "itgam": "ls",
     "build": "npm run b:c && npm run b:s",
-    "clean-logs": "rm -rf ./server/logs/*.log"
+    "clear-logs": "rm -rf ./server/logs/*.log"
   },
   "dependencies": {
     "app-root-path": "^3.0.0",
@@ -23,9 +23,12 @@
     "dotenv": "^10.0.0",
     "express": "~4.16.1",
     "express-handlebars": "^5.3.2",
+    "google-icon": "^1.0.1",
     "hbs": "^4.1.1",
     "http-errors": "~1.6.3",
-    "mongoose": "^6.0.5",
+    "material-icons": "^1.12.1",
+    "materialize-css": "^1.0.0-rc.2",
+    "mongoose": "^6.7.2",
     "morgan": "~1.9.1",
     "rimraf": "^3.0.2",
     "webpack": "^5.35.0",

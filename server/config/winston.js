@@ -30,7 +30,7 @@ const myConsoleFormat = combine(
   // Colores
   colorize({ all: true }),
   // Agregar una etiqueta
-  label({ label: '✒️' }),
+  label({ label: '✒️ 👿' }),
   // Agregando Fecha
   timestamp({ format: 'DD-MM-YYYY HH:mm:ss' }),
   // Funcion de impresion
