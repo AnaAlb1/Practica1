@@ -1,7 +1,9 @@
-.acomodar{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+body{
+  padding: 50px;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(198, 238, 172);
 }
-img{
-  height: 13rem;
+
+a{
+  color: #00B7FF;
 }

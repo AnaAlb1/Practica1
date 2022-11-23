@@ -6,28 +6,28 @@ dotEnv.config();
 
 // Creando objeto de configuracion
 
-// Creando configuración por defecto
-const defaultConfig = {
+// Creando configuracion por defecto
+const defatultConfig = {
   port: process.env.PORT || '3000',
   appVersion: process.env.APP_VERSION,
 };
 
-// Configuración para desarrollo
+// Configuracion para desarollo
 const devConfig = {
   env: 'development',
   mongoUrl: process.env.DEV_DATABASE_URL,
   debug: process.env.DEBUG,
 };
 
-// Configuración para producción
+// Configuracion para produccion
 const prodConfig = {
   env: 'production',
   mongoUrl: 'cloud url',
 };
 
-// Función dado al entorno de ejecucuión
-// nos retorne el objeto de configuración adecuado
-function envConfig(env) {
+// Funcion que dado el entorno de ejecucion
+// nos retorne el objeto de configuracion adecuado
+function envCofig(env) {
   switch (env) {
     case 'development':
       return devConfig;
@@ -38,8 +38,8 @@ function envConfig(env) {
   }
 }
 
-// Exportar la configuración
+// Exportar la configuracion
 export default {
-  ...defaultConfig,
-  ...envConfig(process.env.NODE_ENV),
+  ...defatultConfig,
+  ...envCofig(process.env.NODE_ENV),
 };

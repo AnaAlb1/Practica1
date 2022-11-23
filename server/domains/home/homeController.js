@@ -1,5 +1,6 @@
 // Cargando las variables de entorno
 import configKeys from '../../config/configKeys';
+
 // Creando los Actions Methods
 // GET "/"
 // GET "/index"
@@ -7,7 +8,7 @@ const home = (req, res) => {
   // 1. Generando el view-model
   const viewModel = {
     title: 'Express',
-    author: 'Analleli Albarrán',
+    author: 'Ivan Rivalcoba',
   };
 
   // 2. Madamos a generar la vista con el Template Engine

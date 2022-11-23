@@ -38,9 +38,6 @@ import MongooseOdm from './config/odm';
 const nodeEnv = configKeys.env;
 
 // Creando una instancia de express
-logger.info('Este es un mensaje informativo');
-logger.error('Este es un mensaje de error');
-logger.warn('Este es un mensaje preventivo');
 const app = express();
 
 // Inclusion del webpack middleware
@@ -71,6 +68,24 @@ if (nodeEnv === 'development') {
 } else {
   debug('✒ Ejecutando en modo de producción 🏭');
 }
+
+// Realizando la conexión a la base de datos
+// Creando una instancia a la conexion de la DB
+const mongooseODM = new MongooseOdm(configKeys.mongoUrl);
+// Ejecutar la conexion a la Bd
+// Crear una IIFE para crear un ambito asincrono
+// que me permita usar async await
+(async () => {
+  // Ejecutamos le metodo de conexion
+  const connectionResult = await mongooseODM.connect();
+  // Checamos si hay error
+  if (connectionResult) {
+    // Si conecto correctamente a la base de datos
+    logger.info('✅ Conexion a la BD exitosa 🛢️');
+  } else {
+    logger.error('🥀 No se conecto a la base de datos');
+  }
+})();
 
 // view engine setup
 // Configura el motor de plantillas
