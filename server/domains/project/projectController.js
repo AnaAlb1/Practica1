@@ -12,10 +12,21 @@ const list = (req, res) => {
 
 // GET "/project/add"
 // GET "/project/create"
-const add = (req, res) => {
+const showAddProjectForm = (req, res) => {
   const viewModel = {};
   res.render('project/add', viewModel);
 };
 
+// POST "/project/add"
+// POST "/proyect/create"
+const addProject = (req, res) => {
+  // Extrayendo la informacion del formulario
+  const { name, description } = req.body;
+  res.status(200).json({
+    name,
+    description,
+  });
+};
+
 // Exportando el Controlador
-export default { list, add };
+export default { list, showAddProjectForm, addProject };
