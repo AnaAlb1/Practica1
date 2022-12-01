@@ -1,8 +1,8 @@
+
 const list = (req, res) => {
   const viewModel = {};
   res.render('project/list', viewModel);
 };
-
 
 const showAddProjectForm = (req, res) => {
   const viewModel = {};
@@ -10,13 +10,21 @@ const showAddProjectForm = (req, res) => {
 };
 
 const addProject = (req, res) => {
-  const { errorData: error } = req;
+ 
+  const { validData, errorData: error } = req;
+  let project = {};
+  let errorModel = {};
   if (error) {
-    res.status(200).json(error);
+    project = error.value;
+    errorModel = error.inner.reduce((prev, curr) => {
+      const newVal = prev;
+      newVal[`${curr.path}Error`] = curr.message;
+      return newVal;
+    }, {});
   } else {
-    const { validData: projectData } = req;
-    res.status(200).json(projectData);
+    project = validData;
   }
+  res.status(200).render('project/add', { project, errorModel });
 };
 
 export default { list, showAddProjectForm, addProject };
